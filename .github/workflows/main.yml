@@ -22,8 +22,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           remote_docker_host: root@66.97.32.96
-          ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
-          ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}   
+        #  ssh_private_key: ${{ secrets.DOCKER_SSH_PRIVATE_KEY }}
+         # ssh_public_key: ${{ secrets.DOCKER_SSH_PUBLIC_KEY }}   
 
       - name: Run a one-line script
         run: echo Hello, world!
