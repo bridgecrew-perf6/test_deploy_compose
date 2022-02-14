@@ -26,7 +26,7 @@ jobs:
           PORT: ${{secrets.PORT}}
           USERNAME: ${{secrets.USERNAME}}
           password: ${{secrets.PASSWORD}}
-          target: ${{secrets.TARGET}}
+          #target: ${{secrets.TARGET}}
           #source: "./scripts/*"
           args: ls /
  
