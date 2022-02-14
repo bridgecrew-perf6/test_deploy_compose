@@ -30,7 +30,7 @@ jobs:
           target: ${{secrets.TARGET}}
           source: "./scripts/*"
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: ls /opt/geonode/
 
       - name: Run a multi-line script
         run: |
