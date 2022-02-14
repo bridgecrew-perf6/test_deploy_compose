@@ -16,3 +16,4 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           #target: ${{secrets.TARGET}}
+          script: whoami
