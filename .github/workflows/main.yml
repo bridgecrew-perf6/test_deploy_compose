@@ -29,8 +29,10 @@ jobs:
           password: ${{secrets.PASSWORD}}
           target: ${{secrets.TARGET}}
           source: "./scripts/*"
+          run: ls /opt/geonode/
+          
       - name: Run a one-line script
-        run: ls /opt/geonode/
+        #run: ls /opt/geonode/
 
       - name: Run a multi-line script
         run: |
