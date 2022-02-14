@@ -9,10 +9,10 @@ jobs:
     steps:
 #      - uses: actions/checkout@v2
       - name: remote-bash
-        uses: actions/checkout@v2
+        uses: appleboy/ssh-action@master
         with:
-          HOST: ${{secrets.HOST}}
-          PORT: ${{secrets.PORT}}
-          USERNAME: ${{secrets.USERNAME}}
-          password: ${{secrets.PASSWORD}}
+          HOST: ${{ secrets.HOST }}
+          PORT: ${{ secrets.PORT }}
+          USERNAME: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
           #target: ${{secrets.TARGET}}
