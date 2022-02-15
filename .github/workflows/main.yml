@@ -1,0 +1,19 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+#  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+#      - uses: actions/checkout@v2
+      - name: remote-bash
+        uses: appleboy/ssh-action@master
+        with:
+          HOST: ${{ secrets.HOST }}
+          PORT: ${{ secrets.PORT }}
+          USERNAME: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          #target: ${{secrets.TARGET}}
+          script: sh /tmp/test.sh
