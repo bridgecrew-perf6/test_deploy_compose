@@ -1,0 +1,37 @@
+version: '3.4'
+services:
+
+  django:
+    build: .
+    # Loading the app is defined here to allow for
+    # autoreload on changes it is mounted on top of the
+    # old copy that docker added when creating the image
+    volumes:
+      - '.:/usr/src/app'
+    environment:
+      - DEBUG=False
+      - GEONODE_LB_HOST_IP=www.geonode-qa.cresud.scanterra.com
+      - GEONODE_LB_PORT=80
+      - SITEURL=http://www.geonode-qa.cresud.scanterra.com/
+      - ALLOWED_HOSTS=['www.geonode-qa.cresud.scanterra.com', ]
+      - GEOSERVER_PUBLIC_LOCATION=http://www.geonode-qa.cresud.scanterra.com/geoserver/
+      - GEOSERVER_WEB_UI_LOCATION=http://www.geonode-qa.cresud.scanterra.com/geoserver/
+
+  celery:
+    build: .
+    volumes:
+      - '.:/usr/src/app'
+    environment:
+      - DEBUG=False
+      - GEONODE_LB_HOST_IP=www.geonode-qa.cresud.scanterra.com
+      - GEONODE_LB_PORT=80
+      - SITEURL=http://www.geonode-qa.cresud.scanterra.com/
+      - ALLOWED_HOSTS=['www.geonode-qa.cresud.scanterra.com', ]
+      - GEOSERVER_PUBLIC_LOCATION=http://www.geonode-qa.cresud.scanterra.com/geoserver/
+      - GEOSERVER_WEB_UI_LOCATION=http://www.geonode-qa.cresud.scanterra.com/geoserver/
+
+  geoserver:
+    environment:
+      - GEONODE_LB_HOST_IP=www.geonode-qa.cresud.scanterra.com
+      - GEONODE_LB_PORT=80
+  #    - NGINX_BASE_URL=
